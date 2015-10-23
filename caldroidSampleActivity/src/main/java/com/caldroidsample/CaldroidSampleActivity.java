@@ -1,9 +1,9 @@
 package com.caldroidsample;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @SuppressLint("SimpleDateFormat")
-public class CaldroidSampleActivity extends AppCompatActivity {
+public class CaldroidSampleActivity extends Activity {
     private boolean undo = false;
     private CaldroidFragment caldroidFragment;
     private CaldroidFragment dialogCaldroidFragment;
@@ -94,7 +94,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
         setCustomResourceForDates();
 
         // Attach to the activity
-        FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction t = getFragmentManager().beginTransaction();
         t.replace(R.id.calendar1, caldroidFragment);
         t.commit();
 
@@ -238,7 +238,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
                 final String dialogTag = "CALDROID_DIALOG_FRAGMENT";
                 if (state != null) {
                     dialogCaldroidFragment.restoreDialogStatesFromKey(
-                            getSupportFragmentManager(), state,
+                            getFragmentManager(), state,
                             "DIALOG_CALDROID_SAVED_STATE", dialogTag);
                     Bundle args = dialogCaldroidFragment.getArguments();
                     if (args == null) {
@@ -252,7 +252,7 @@ public class CaldroidSampleActivity extends AppCompatActivity {
                     dialogCaldroidFragment.setArguments(bundle);
                 }
 
-                dialogCaldroidFragment.show(getSupportFragmentManager(),
+                dialogCaldroidFragment.show(getFragmentManager(),
                         dialogTag);
             }
         });
