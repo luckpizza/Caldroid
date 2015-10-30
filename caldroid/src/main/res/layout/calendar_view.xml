@@ -24,14 +24,14 @@
             style="?styleCaldroidRightArrow" />
     </LinearLayout>
 
-    <GridView
+    <com.roomorama.caldroid.RTLAwareGridView
         android:id="@+id/weekday_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
         android:numColumns="7"
         android:stretchMode="columnWidth" >
-    </GridView>
+    </com.roomorama.caldroid.RTLAwareGridView>
 
     <com.antonyt.infiniteviewpager.InfiniteViewPager
         android:id="@+id/months_infinite_pager"
